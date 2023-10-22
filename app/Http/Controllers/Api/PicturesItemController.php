@@ -43,9 +43,15 @@ class PicturesItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PictureRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+
+        $picture = picture::findOrFail($id);
+        $picture->update($validated);
+                 
+
+        return $picture;
     }
 
     /**

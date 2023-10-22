@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/picturess', [PicturesItemController::class, 'index']);
 Route::get('/picturess/{id}', [PicturesItemController::class,'show']);
 Route::post('/picturess', [PicturesItemController::class,'store']);
+Route::put('/picturess/{id}', [PicturesItemController::class,'update']);
 Route::delete('/picturess/{id}', [PicturesItemController::class,'destroy']);
