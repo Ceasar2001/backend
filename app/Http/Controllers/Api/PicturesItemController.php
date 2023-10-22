@@ -48,6 +48,10 @@ class PicturesItemController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $picture = picture::findOrFail($id);
+
+        $picture->delete();
+
+        return $picture;
     }
 }
