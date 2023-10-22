@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\PictureRequest;
 use App\Models\picture;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,9 +21,13 @@ class PicturesItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PictureRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $picture = picture::create($validated);
+
+        return $picture;
     }
 
     /**
