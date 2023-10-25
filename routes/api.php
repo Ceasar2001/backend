@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PicturesItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,8 @@ Route::get('/picturess/{id}', [PicturesItemController::class,'show']);
 Route::post('/picturess', [PicturesItemController::class,'store']);
 Route::put('/picturess/{id}', [PicturesItemController::class,'update']);
 Route::delete('/picturess/{id}', [PicturesItemController::class,'destroy']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::delete('/user/{id}', [UserController::class, 'destroy']);
+Route::post('/user', [UserController::class, 'store']);
